@@ -1,0 +1,23 @@
+<DOCTYPE !html>
+	<html>
+		<head>
+		</head>
+			<body style="background-color:black">
+			<form action="{% url 'quizz:vote' question.id %}" method="post">
+			{% csrf_token  %}
+			<h1 style="text-align:center;color:yellow">Quizz show!</h1>
+			<h3 style="color:yellow;text-align:center">Quizz number {{ question.id }}</h3>
+			<fieldset>
+			<legend style="color:yellow"><h1 style="color:yellow">{{question.question_text}}</h1></legend>
+			{% if error_message %} <p><strong> {{error_message}}</strong></p>{% endif %}
+			{% for choice in question.choice_set.all %}
+				<input style="color:yellow" type="radio" name="choice" id="choice{{forloop.counter}}" value="{{choice.id}}">
+				<label style="color:yellow" for="choice{{forloop.counter}}">{{choice.choice_text}}</label><br>
+			{% endfor %}
+			</fieldset>
+			<br>
+			<input style="display:block;margin:auto" type="submit" value="Vote"><br>
+			<button style="display:block;margin:auto;"><a href="{% url 'quizz:index' %}" style="text-decoration:none;">Go Back</a></button>
+			</form>
+			<body>
+	</html>   

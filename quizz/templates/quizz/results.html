@@ -1,0 +1,20 @@
+<DOCTYPE !html>
+
+<html>
+	<head>
+
+	</head>
+
+	<body style="background-color:black; color:yellow; text-align:center">
+		<h1>Results</h1>
+		{{question.question_text}}
+
+		<ul style="color:yellow; margin-left:25%;margin-right:25%;">
+		{% for choice in question.choice_set.all %}
+			<li>{{choice.choice_text}} -- {{ choice.votes }} vote{{ choice.votes|pluralize }}</li>
+		{% endfor %}
+		</ul>
+
+		<a href="{% url 'quizz:detail' question.id %}"> Vote Again ?</a>
+	</body>
+</html>
