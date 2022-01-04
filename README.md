@@ -3,7 +3,7 @@ This is the root folder for the backend of a simple website that creates quizzes
 Mains skills practiced :
 - Create virtual environment for your work with VENV python package.
 - startproject w/ super-admin
-- Setting the settings.py
+- Setting up the settings.py
 - Setting up URL conf
 - Setting up admin page.
 - Creating models for db.
